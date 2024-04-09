@@ -82,25 +82,6 @@ LV_IMG_DECLARE(image);
 LV_IMG_DECLARE(boot); // WALLPAPER
 LV_IMG_DECLARE(image_cursor);
 
-enum DemoEvent
-{
-    DEMO_TX_BTN_CLICK_EVENT,
-    DEMO_RX_BTN_CLICK_EVENT,
-    DEMO_OTA_BTN_CLICK_EVENT,
-    DEMO_VAD_BTN_CLICK_EVENT,
-    DEMO_PLAY_BTN_CLICK_EVENT,
-    DEMO_SLEEP_BTN_CLICK_EVENT
-};
-
-static const DemoEvent event[] = {
-    DEMO_TX_BTN_CLICK_EVENT,
-    DEMO_RX_BTN_CLICK_EVENT,
-    DEMO_OTA_BTN_CLICK_EVENT,
-    DEMO_VAD_BTN_CLICK_EVENT,
-    DEMO_PLAY_BTN_CLICK_EVENT,
-    DEMO_SLEEP_BTN_CLICK_EVENT,
-};
-
 #ifdef USE_ESP_VAD
 #include <esp_vad.h>
 int16_t *vad_buff;
@@ -271,13 +252,15 @@ void setup()
         delay(1);
     }
 
-    TimeOverNtp();
+    //TimeOverNtp();
 
     interface_noscroll();
 
     //interface_main();
 
-    interface_dev();
+    //interface_dev();
+
+    setup_scr_screen_main();
 
   
 }
@@ -287,7 +270,8 @@ void loop()
 
     if (enterSleep){sleep();}
 
-    loobBattery();
+    //loobBattery();
+
     //loopRadio();
 
     timesincelastboot ++;
